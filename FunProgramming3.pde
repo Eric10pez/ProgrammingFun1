@@ -1,4 +1,34 @@
-/** Copy and Paste the code here 
-  * If your code contains more than one class, 
-  * be sure to paste the second class at the end 
-  */
+float diam = 100;
+float a = 0;
+
+void setup() {
+  size(500, 400);
+  background(0);
+  noFill();
+}
+void draw() {
+  background(0);
+  
+  float x = noise(a, 10) * width;
+  float y = noise(a, 20) * height;
+
+  float d = dist(x, y, mouseX, mouseY);
+  
+  if(d > diam) {
+    strokeWeight(1);
+  } else {
+    strokeWeight(random(10));
+  }
+  
+  stroke(25, 55, 250);
+  ellipse(x, y, diam, diam);
+  
+  stroke(0, 255, 250);
+  ellipse(mouseX, mouseY, diam, diam);
+  
+  a = a + 0.01;
+}
+
+
+
+
